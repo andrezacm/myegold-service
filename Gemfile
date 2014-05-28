@@ -8,10 +8,17 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
+gem 'omniauth-google-oauth2'
+
+gem 'gmail'
 
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'factory_girl'
+	gem 'factory_girl_rails'
+	gem 'database_cleaner'
+	gem 'dotenv-rails'
+	gem 'capybara'
+  gem 'simplecov'
 end
 
 # To use ActiveModel has_secure_password

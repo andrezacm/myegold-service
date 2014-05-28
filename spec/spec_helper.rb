@@ -13,6 +13,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+	config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -40,3 +41,15 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+OmniAuth.config.test_mode = true
+omniauth_hash = { 'provider' => 'google_oauth2',
+                  'uid' 		 => '12345',
+                  'info' 		 => {
+                  							'name' 		=> 'Jonh Test',
+                      					'email'		=> 'jonh@test.com'
+																}
+                }
+}
+ 
+OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)

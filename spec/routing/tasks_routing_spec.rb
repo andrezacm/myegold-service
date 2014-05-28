@@ -1,5 +1,5 @@
 require "spec_helper"
-
+=begin
 describe TasksController do
   describe "routing" do
 
@@ -33,3 +33,4 @@ describe TasksController do
 
   end
 end
+=end
