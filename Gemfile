@@ -10,7 +10,7 @@ gem 'sqlite3'
 
 gem 'omniauth-google-oauth2'
 
-gem 'gmail'
+gem 'ruby-gmail'
 
 group :development, :test do
 	gem 'rspec-rails'
