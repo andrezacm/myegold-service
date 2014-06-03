@@ -50,6 +50,6 @@ omniauth_hash = { 'provider' => 'google_oauth2',
                       					'email'		=> 'jonh@test.com'
 																}
                 }
-}
- 
+
 OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
+
