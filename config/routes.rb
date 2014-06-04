@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  #get 'gmail_client/connect'
+	post 'gmail_client/connect'
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-#	get 'signin', to: 'sessions#create', :as => 'signin'
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
