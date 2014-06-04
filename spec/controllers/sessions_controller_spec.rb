@@ -14,9 +14,9 @@ describe SessionsController do
 		end
 
 		it "sould successfully create a session" do
-			session[:uid].should be_nil 
+			session[:user_id].should be_nil 
 			post :create, provider: :google_oauth2 
-			session[:uid].should_not be_nil
+			session[:user_id].should_not be_nil
 		end
 
 		it "should returns http success" do
@@ -24,21 +24,16 @@ describe SessionsController do
 			response.should be_success
 		end
 	end
+	
+	describe "#destroy" do
+		before do
+			post :create, provider: :google_oauth2 
+		end
 
-=begin
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-			#expect(response.status).to eq 200
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-=end
+		it "should clear the session" do
+			session[:user_id].should_not be_nil
+			delete :destroy
+			session[:user_id].should be_nil		
+		end
+	end
 end

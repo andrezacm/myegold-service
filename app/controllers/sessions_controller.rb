@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     #session[:user_id] = nil
     #redirect_to root_path
 		reset_session
-		render json: nil
+		render json: nil, status: 200
   end
 
 end
