@@ -18,7 +18,7 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'dotenv-rails'
 	gem 'capybara'
-  gem 'simplecov'
+	gem 'simplecov', :require => false
 end
 
 # To use ActiveModel has_secure_password
