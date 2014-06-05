@@ -8,5 +8,15 @@ describe GmailClientController do
 			response.should be_success
 		end
 	end
+
+	describe "#inbox" do
+		before do
+		end
+
+		it "should successfully inbox" do
+			get :inbox
+			response.should be_success
+		end
+	end
 	
 end

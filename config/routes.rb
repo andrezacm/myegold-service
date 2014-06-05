@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  #get 'gmail_client/connect'
 	post 'gmail_client/connect'
+  get 'gmail_client/inbox'
+	get 'gmail_client/new_message'	
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
