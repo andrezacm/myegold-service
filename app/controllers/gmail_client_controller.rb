@@ -3,23 +3,16 @@ require 'gmail'
 class GmailClientController < ApplicationController
 
 	def connect
-		set_sessions(params[:username], params[:password])
 		set_client
-		render json: params[:username], status: 200
+		render json: current_user, status: 200
 	end
 
 	def set_client
-		@gmail_client = Gmail.new(session[:username], session[:password])
-	end
-
-	def set_sessions username, password
-		session[:username] = params[:username]
-		session[:password] = params[:password]
+		user = current_user
+		@gmail_client = Gmail.new(user.username, user.psw)
 	end
 
 	def inbox
-		 #render json: {"message"=> "Permission deneid"}, status: 401	
-		set_sessions params[:username], params[:password]
 		set_client
 		
 		emails = []
@@ -30,7 +23,6 @@ class GmailClientController < ApplicationController
 	end
 
 	def new_message
-		set_sessions params[:username], params[:password]
 		set_client
 
 		@gmail_client.deliver do

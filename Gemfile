@@ -12,6 +12,8 @@ gem 'omniauth-google-oauth2'
 
 gem 'ruby-gmail'
 
+gem 'whenever', :require => false
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'

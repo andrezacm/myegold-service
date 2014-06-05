@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'gmail_client/inbox'
 	get 'gmail_client/new_message'	
 
+	post 'auth/set_user', to: 'sessions#set_username_and_password'
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

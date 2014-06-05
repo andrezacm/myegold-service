@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
     end
   end
 
+	def set_username_and_password username, password
+		self.username = username
+		self.psw = password
+	end
+
 end

@@ -11,6 +11,10 @@ class SessionsController < ApplicationController
 		render json: user, status: 200
   end
 
+	def set_username_and_password
+		@current_user.set_username_and_password params[:username], params[:password]
+	end
+
   def destroy
     #session[:user_id] = nil
     #redirect_to root_path
